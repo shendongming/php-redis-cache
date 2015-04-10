@@ -1,5 +1,5 @@
 {
-    "name": "sdm/php-redis-cache",
+    "name": "shendongming/php-redis-cache",
     "description": "php redis cache ,consistent hashing ,wrap phpredis",
     "license": "BSD",
     "authors": [
