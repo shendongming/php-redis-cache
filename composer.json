@@ -1,0 +1,13 @@
+{
+    "name": "sdm/php-redis-cache",
+    "description": "php redis cache ,consistent hashing ,wrap phpredis",
+    "license": "BSD",
+    "authors": [
+        {
+            "name": "shendongming",
+            "email": "sdmzhu3@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}
