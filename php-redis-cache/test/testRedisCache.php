@@ -11,7 +11,7 @@
  */
 
 
-include_once __DIR__ . '/RedisCache.php';
+include_once __DIR__ . '/../../vendor/autoload.php';
 
 
 function test1()
@@ -89,24 +89,44 @@ function test3()
 
 }
 
-function test4_set(){
+function test4_set1()
+{
     $conf = array(
-        'cluster' => array('127.0.0.1:7001','127.0.0.1:7000'),
+        'cluster' => array('127.0.0.1:7001', '127.0.0.1:7000'),
     );
     $cache = new RedisCache($conf);
+    $t1 = microtime(1);
+
+    for ($i = 0; $i < 10000; $i++) {
+        $cache->set('qw' . $i, 'hello' . $i);
+    }
+
+    $t2 = microtime(1);
+
+    var_dump($t2 - $t1);
+    echo "\n";
+}
+function test4_set2()
+{
+    $cache = new Redis();
+    $cache->pconnect('127.0.0.1',7001);
     $t1=microtime(1);
 
     for ($i = 0; $i < 10000; $i++) {
-        $cache->set('a' . $i, 'hello' . $i);
+        $cache->set('qwe' . $i, 'hello' . $i);
+        $cache->expire('qwe'.$i,1800);
     }
 
     $t2=microtime(1);
 
     var_dump($t2-$t1);
     echo "\n";
+
+
 }
 
 test1();
 test2();
 test3();
-test4_set();
+test4_set1();
+test4_set2();

@@ -6,7 +6,7 @@
  */
 
 
-include_once __DIR__ . '/Hashing.php';
+include_once __DIR__ . '/../../vendor/autoload.php';
 
 
 function testFindOne($i, $pos, $idList)

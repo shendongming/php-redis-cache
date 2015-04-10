@@ -1,14 +1,11 @@
 <?php
+
 /**
  * Created by PhpStorm.
  * User: sdm
  * Date: 15/4/10
  * Time: 14:09
  */
-
-
-include_once(__DIR__ . '/Hashing.php');
-
 class RedisCache
 {
     const MAX_HASH = 0xffff;
@@ -40,8 +37,9 @@ class RedisCache
 
     public function getHash($key)
     {
-        $v=substr(md5($key),0,4) ;
-        return  hexdec($v) & self::MAX_HASH;
+        //return crc32($key)  & self::MAX_HASH;
+        $v = substr(md5($key), 0, 4);
+        return hexdec($v) & self::MAX_HASH;
     }
 
     /**
