@@ -3,8 +3,8 @@ php redis cache ,consistent hashing ,wrap phpredis
 
 
 
-'''php
-<?php     
+```php
+<?     
     include_once __DIR__ . '/RedisCache.php';
     
     
@@ -104,4 +104,4 @@ php redis cache ,consistent hashing ,wrap phpredis
     test2();
     test3();
     test4_set();
-'''
+```
